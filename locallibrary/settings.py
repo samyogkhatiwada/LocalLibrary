@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['locallibrary69.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      # Add our new application
     'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
-    'jazzmin',
 ]
 
 MIDDLEWARE = [
@@ -131,16 +130,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-samyogkhatiwada-locallib-r00j0o3u733.ws-us29.gitpod.io']
+# CSRF_TRUSTED_ORIGINS = ['https://8000-samyogkhatiwada-locallib-r00j0o3u733.ws-us29.gitpod.io']
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
-
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
 
 
 # Static files (CSS, JavaScript, Images)
@@ -155,4 +148,3 @@ STATIC_URL = '/static/'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
